@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author darwi
  */
-public class DaoImplement <E> implements DaoInterface<T>{
+public class DaoImplement <T> implements DaoInterface<T>{
     private Class <T> clazz;
     private XStream connection;
     private String URL;
