@@ -19,13 +19,14 @@ public class ControlEstudiante1 extends DaoImplement<Estudiante>{
      public ControlEstudiante1(){
          super(Estudiante.class);
      }
-    public DynamicList<Estudiante> getEstudiantes() {
+    public DynamicList<Estudiante> getListR(){
         return listR = all();
     }
 
     public void setListR(DynamicList<Estudiante> listR) {
         this.listR = listR;
     }
+
 
     public Estudiante getEstudiante() {
         if(estudiante==null)
@@ -39,7 +40,7 @@ public class ControlEstudiante1 extends DaoImplement<Estudiante>{
     public void setEstudiante (Estudiante estudiante) {
         this.estudiante = estudiante;
     }
-    public Boolean persit(){
+    public Boolean persist(){
         estudiante.setId(all().getLength()+1);
         
         return persist(estudiante);

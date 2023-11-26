@@ -4,6 +4,7 @@
  */
 package ControlEstudiante.vista;
 
+import ControlEstudiante.controlador.ControlEstudiante.ControlEstudiante;
 import ControlEstudiante.controlador.Estudiante.ControlEstudiante1;
 import ControlEstudiante.vista.Tabla.ModeloTablaEstudiante;
 import javax.swing.JOptionPane;
@@ -25,7 +26,7 @@ public class Registro extends javax.swing.JFrame {
         Limpiar();
     }
     private void CargarTabla() {
-        mta.setEstudiantes(estudianteControl.getEstudiantes());
+        mta.setEstudiantes(estudianteControl.getListR());
         tblMostrar.setModel((TableModel) mta);
         tblMostrar.updateUI();
     }
@@ -58,7 +59,7 @@ public class Registro extends javax.swing.JFrame {
              estudianteControl.getEstudiante().setEdad(txtEdad.getText());
             estudianteControl.getEstudiante().setCorreo(txtCorreo.getText());
             
-        if (estudianteControl.persit()) {
+        if (estudianteControl.persist()) {
                 JOptionPane.showMessageDialog(null, "Datos guardados con exito");
                 estudianteControl.setEstudiante(null);
                 CargarTabla();
