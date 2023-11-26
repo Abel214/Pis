@@ -12,7 +12,7 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author ALEJANDRO
  */
-public class ModeloTablaEstudiante extends AbstractTableModel{
+public class ModeloTablaEstudiante1  extends AbstractTableModel{
      private DynamicList<Estudiante> estudiantes;
 
     public DynamicList<Estudiante> getEstudiantes() {
@@ -23,7 +23,7 @@ public class ModeloTablaEstudiante extends AbstractTableModel{
         this.estudiantes = estudiantes;
     }
 
-     public ModeloTablaEstudiante() {
+     public ModeloTablaEstudiante1() {
         this.estudiantes=new DynamicList<>();
     }
     @Override
