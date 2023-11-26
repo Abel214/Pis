@@ -8,20 +8,31 @@ package Tareas.Modelo;
  *
  * @author ALEJANDRO
  */
-public class AdministraTarea {
+public class Control {
     private Tarea id_tarea;
     private String estadoTarea;
     private String tipoTarea;
+    private Integer Id;
 
-    public AdministraTarea(Tarea id_tarea, String estadoTarea, String tipoTarea) {
+    public Control(Tarea id_tarea, String estadoTarea, String tipoTarea,Integer Id) {
         this.id_tarea = id_tarea;
+        this.Id=Id;
         this.estadoTarea = estadoTarea;
         this.tipoTarea = tipoTarea;
     }
-    public AdministraTarea() {
+    public Control() {
         this.id_tarea =null;
         this.estadoTarea = null;
         this.tipoTarea = null;
+        this.Id=null;
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer Id) {
+        this.Id = Id;
     }
 
     
@@ -51,6 +62,7 @@ public class AdministraTarea {
     public void setTipoTarea(String tipoTarea) {
         this.tipoTarea = tipoTarea;
     }
+    
     
     
 }
