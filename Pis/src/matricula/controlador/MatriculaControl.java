@@ -13,7 +13,7 @@ import matricula.modelo.Matricula;
  * @author darwi
  */
 public class MatriculaControl extends DaoImplement<Matricula>{
-    private DynamicList<Matricula> listCasa;
+    private DynamicList<Matricula> listMatricula;
     private Matricula matricula;
 
     public MatriculaControl() {
@@ -21,23 +21,23 @@ public class MatriculaControl extends DaoImplement<Matricula>{
     }
     
 
-    public DynamicList<Matricula> getListC() {
-        listCasa = all();
-        return listCasa;
+    public DynamicList<Matricula> getListMatricula() {
+        listMatricula = all();
+        return listMatricula;
     }
 
-    public void setListC(DynamicList<Matricula> ListC) {
-        this.listCasa = ListC;
+    public void setListMatricula(DynamicList<Matricula> ListC) {
+        this.listMatricula = ListC;
     }
 
-    public Matricula getCasa() {
+    public Matricula getMatricula() {
         if(matricula ==null){
             matricula = new Matricula();
         }
         return matricula;
     }
 
-    public void setCasa(Matricula matricula) {
+    public void setMatricula(Matricula matricula) {
         this.matricula = matricula;
     }
     
