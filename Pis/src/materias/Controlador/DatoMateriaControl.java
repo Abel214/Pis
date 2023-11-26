@@ -9,7 +9,7 @@ import materias.Modelo.Nombre;
 
 /**
  *
- * @author ALEJANDRO
+ * @author Elías
  */
 public class DatoMateriaControl {
     private Nombre nombre;

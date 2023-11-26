@@ -9,7 +9,7 @@ import materias.Modelo.Materia;
 
 /**
  *
- * @author ALEJANDRO
+ * @author Elías
  */
 public class MateriaControl {
      private DynamicList<Materia>materias;

@@ -6,7 +6,7 @@ package materias.Modelo;
 
 /**
  *
- * @author ALEJANDRO
+ * @author Elías
  */
 public class Nombre {
    private Materia Id_nombre;

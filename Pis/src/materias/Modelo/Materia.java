@@ -6,7 +6,7 @@ package materias.Modelo;
 
 /**
  *
- * @author ALEJANDRO
+ * @author  Elías
  */
 public class Materia {
     private Integer id;
@@ -17,6 +17,9 @@ public class Materia {
         this.id = id;
         this.nombre_materia = nombre_materia;
         this.descripcion = descripcion;
+    }
+     public Materia() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public Integer getId() {
