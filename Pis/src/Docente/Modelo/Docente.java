@@ -17,8 +17,9 @@ public class Docente {
     private String Correo;
     private String Especialidad;
     private String Numero;
+    private String descripcion;
 
-    public Docente(String Nombre, String Apellido, String edad, Integer id, String Cedula, String Correo, String Especialidad, String Numero) {
+    public Docente(String Nombre, String descripcion,String Apellido, String edad, Integer id, String Cedula, String Correo, String Especialidad, String Numero) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.edad = edad;
@@ -27,6 +28,7 @@ public class Docente {
         this.Correo = Correo;
         this.Especialidad = Especialidad;
         this.Numero = Numero;
+        this.descripcion=descripcion;
     }
     public Docente() {
         this.Nombre = null;
@@ -37,6 +39,7 @@ public class Docente {
         this.Correo = null;
         this.Especialidad = null;
         this.Numero = null;
+        this.descripcion=null;
     }
 
     public String getNombre() {
@@ -103,10 +106,21 @@ public class Docente {
         this.Numero = Numero;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     @Override
     public String toString() {
-        return "Docente{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", edad=" + edad + ", Cedula=" + Cedula + ", Correo=" + Correo + ", Especialidad=" + Especialidad + ", Numero=" + Numero + '}';
+        return "Docente{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", edad=" + edad + ", Cedula=" + Cedula + ", Correo=" + Correo + ", Especialidad=" + Especialidad + ", Numero=" + Numero + ", descripcion=" + descripcion + '}';
     }
+    
+
+    
     
     
 }
