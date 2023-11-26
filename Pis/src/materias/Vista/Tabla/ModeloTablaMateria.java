@@ -15,7 +15,7 @@ import materias.Modelo.Nombre;
 public class ModeloTablaMateria extends AbstractTableModel {
     private DynamicList<Nombre> nombre;
 
-    public DynamicList<Nombre> geNombre() {
+    public DynamicList<Nombre> getNombre() {
         return nombre;
     }
 

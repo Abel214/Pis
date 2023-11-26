@@ -129,5 +129,7 @@ public class DynamicList <E> {
     public Node<E> obtenerNodo(Integer id) throws EmptyException{      
         return getNode(id);
     }
-    
+    public int getId_nombre() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
