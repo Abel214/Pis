@@ -9,5 +9,36 @@ package materias.Modelo;
  * @author ALEJANDRO
  */
 public class Nombre {
-    
+   private Materia Id_nombre;
+   private Integer id;
+
+   private Nombre(){
+       
+   }
+
+    public Nombre(Materia Id_nombre, Integer id) {
+        this.Id_nombre = Id_nombre;
+        this.id = id;
+    }
+   
+   
+    public Materia getId_nombre() {
+        return Id_nombre;
+    }
+
+    public void setId_nombre(Materia Id_nombre) {
+        this.Id_nombre = Id_nombre;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+   
+   
 }
