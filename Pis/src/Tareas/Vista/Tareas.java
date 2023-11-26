@@ -4,6 +4,8 @@
  */
 package Tareas.Vista;
 
+import Tareas.Controlador.ControlTareas.DatoAdministrarTarea1;
+import Tareas.Vista.TablaTarea.ModeloTablaTarea;
 import java.text.SimpleDateFormat;
 
 /**
@@ -11,7 +13,8 @@ import java.text.SimpleDateFormat;
  * @author ALEJANDRO
  */
 public class Tareas extends javax.swing.JFrame {
-
+    private DatoAdministrarTarea1 casaControl = new DatoAdministrarTarea1();
+    private ModeloTablaTarea mtp = new ModeloTablaTarea();
     /**
      * Creates new form Tareas
      */
@@ -54,13 +57,13 @@ public class Tareas extends javax.swing.JFrame {
 
         tblMostrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
             }
         ));
         jScrollPane1.setViewportView(tblMostrar);
