@@ -159,15 +159,15 @@ public class Tareas extends javax.swing.JFrame {
 
         jLabel4.setText("Tipo Tarea:");
 
-        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACD", "APE", "AA" }));
 
         jLabel5.setText("Estado Tarea:");
 
-        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enviada", "Retrasada", "Calificada" }));
 
         jLabel6.setText("Nota:");
 
-        cbxNota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxNota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
         jcalendar1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {

@@ -38,6 +38,11 @@ public class Tarea {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return  nombre;
+    }
+    
 
 
     
