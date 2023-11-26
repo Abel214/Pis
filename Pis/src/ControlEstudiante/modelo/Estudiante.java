@@ -13,16 +13,23 @@ public class Estudiante {
    private String apellido;
    private String edad;
    private String correo;
+   private String cedula;
    private Integer Id;
 
-    public Estudiante(String nombre, String apellido, String edad, String correo, Integer Id) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.correo = correo;
-        this.Id = Id;
+    public Estudiante(String nombre, String apellido, String edad, String cedula,String correo, Integer Id) {
+        this.nombre = null;
+        this.apellido = null;
+        this.edad = null;
+        this.correo = null;
+        this.Id = null;
+        this.cedula=null;
     }
- 
+
+    public Estudiante() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+  
     public String getNombre() {
         return nombre;
     }
@@ -62,5 +69,14 @@ public class Estudiante {
     public void setId(Integer Id) {
         this.Id = Id;
     }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+    
    
 }
