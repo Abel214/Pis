@@ -34,7 +34,7 @@ public class ModeloTablaEstudiante  extends AbstractTableModel{
     @Override
     public int getColumnCount() {
        // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-       return 4;
+       return 5;
     }
     @Override
     public String getValueAt(int i,int i1){
