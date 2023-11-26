@@ -9,5 +9,71 @@ package matricula.modelo;
  * @author darwin
  */
 public class Cursa {
+    private Integer id;
+    private Integer id_estudiante;
+    private Integer id_matricula;
+    private Integer id_materia;
+    private String paralelo;
+    private Integer id_docente;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId_matricula() {
+        return id_matricula;
+    }
+
+    public void setId_matricula(Integer id_matricula) {
+        this.id_matricula = id_matricula;
+    }
+
+    public Integer getId_materia() {
+        return id_materia;
+    }
+
+    public void setId_materia(Integer id_materia) {
+        this.id_materia = id_materia;
+    }
+
+    public String getParalelo() {
+        return paralelo;
+    }
+
+    public void setParalelo(String paralelo) {
+        this.paralelo = paralelo;
+    }
+
+    public Integer getId_docente() {
+        return id_docente;
+    }
+
+    public void setId_docente(Integer id_docente) {
+        this.id_docente = id_docente;
+    }
+
+    public Integer getId_estudiante() {
+        return id_estudiante;
+    }
+
+    public void setId_estudiante(Integer id_estudiante) {
+        this.id_estudiante = id_estudiante;
+    }
+
+    @Override
+    public String toString() {
+        return  id_estudiante +" "+ id_materia +" " +  paralelo;
+    }
+    
+
+    
+    
+    
+    
+    
     
 }
