@@ -10,24 +10,35 @@ package materias.Modelo;
  */
 public class Nombre {
    private Materia Id_nombre;
-   private Integer id;
+   private Integer Id;
+   private String identificativo;
    private String Paralelo;
    private String Ciclo;
 
    public Nombre() {
         this.Id_nombre = null;
-        this.id = null;
+        this.Id = null;
         this.Paralelo=null;
         this.Ciclo=null;
+        this.identificativo=null;
     }
     
    
 
-    public Nombre(Materia Id_nombre, Integer id,String Paralelo,String Ciclo) {
+    public Nombre(Materia Id_nombre, Integer Id,String Paralelo,String Ciclo,String identificativo) {
         this.Id_nombre = Id_nombre;
-        this.id = id;
+        this.Id = Id;
         this.Paralelo=Paralelo;
         this.Ciclo=Ciclo;
+        this.identificativo=identificativo;
+    }
+
+    public String getIdentificativo() {
+        return identificativo;
+    }
+
+    public void setIdentificativo(String identificativo) {
+        this.identificativo = identificativo;
     }
    
    
@@ -40,11 +51,11 @@ public class Nombre {
     }
 
     public Integer getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer Id) {
+        this.Id = Id;
     }
 
     public String getParalelo() {
@@ -65,7 +76,7 @@ public class Nombre {
 
     @Override
     public String toString() {
-        return "Nombre{" + "Id_nombre=" + Id_nombre + ", id=" + id + ", Paralelo=" + Paralelo + ", Ciclo=" + Ciclo + '}';
+        return "Nombre{" + "Id_nombre=" + Id_nombre +  ", Paralelo=" + Paralelo + ", Ciclo=" + Ciclo + ", Identificativo=" + identificativo + '}';
     }
     
 

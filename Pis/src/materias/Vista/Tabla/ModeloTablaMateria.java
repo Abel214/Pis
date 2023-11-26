@@ -33,7 +33,7 @@ public class ModeloTablaMateria extends AbstractTableModel {
     @Override
     public int getColumnCount() {
        // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-       return 3;
+       return 4;
     }
     @Override
     public String getValueAt(int i,int i1){
@@ -42,9 +42,10 @@ public class ModeloTablaMateria extends AbstractTableModel {
             Nombre p = nombre.getInfo(i);
             
         switch(i1){
-            case 0: return (p !=null) ? p.getCiclo():" ";   //modelos ternarios
-            case 1: return (p !=null) ? p.getParalelo():" ";
-            case 2: return (p !=null) ? p.getId_nombre().getNombre_materia():" ";
+            case 0: return (p !=null) ? p.getIdentificativo():" ";   
+            case 1: return (p !=null) ? p.getCiclo():" ";   //modelos ternarios
+            case 2: return (p !=null) ? p.getParalelo():" ";
+            case 3: return (p !=null) ? p.getId_nombre().getNombre_materia():" ";
  
             default:
                 return null;
@@ -56,11 +57,13 @@ public class ModeloTablaMateria extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         switch (column) {
-            case 0:
+             case 0:
+                return "Identificativo";
+                case 1:
                 return "Ciclo";
-                 case 1:
+                 case 2:
                 return "Paralelo";
-                case 2:
+                case 3:
                 return "Nombre materia";
                
            

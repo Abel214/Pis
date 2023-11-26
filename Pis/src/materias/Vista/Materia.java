@@ -39,31 +39,36 @@ public class Materia extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
+        txtId.setEnabled(true);
         tblMostrar.clearSelection();
         CargarTabla();
-        cbxCiclo.setSelectedIndex(-1);//limpia combobo
-        cbxParalelo.setSelectedIndex(-1);//limpia combobo
+        cbxCiclo.setSelectedIndex(0);//limpia combobo
+        cbxParalelo.setSelectedIndex(0);//limpia combobo
         cbxMateria.setSelectedIndex(-1);
         materiaControl.setNombre1(null);
     }
-     
+     private Boolean Validar() {
+        return (!txtId.getText().trim().isEmpty());
+    }
      private void Guardar() {
-         if(materiaControl.getNombre1().getId_nombre()== null){
-           materiaControl.getNombre1().setId_nombre(UtilVista.ObtenerCasaControladorL(cbxMateria));
+         if (Validar()) {
+             materiaControl.getNombre1().setIdentificativo(txtId.getText());
+             materiaControl.getNombre1().setCiclo(cbxCiclo.getSelectedItem().toString());
+             materiaControl.getNombre1().setParalelo(cbxParalelo.getSelectedItem().toString());
+             materiaControl.getNombre1().setId_nombre(UtilVista.ObtenerCasaControladorL(cbxMateria));
             
-        if (materiaControl.persist()) {
+            if (materiaControl.persist()) {
                 JOptionPane.showMessageDialog(null, "Datos guardados con exito");
                 materiaControl.setNombre1(null);
                 CargarTabla();
                 Limpiar();
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo guardar");
-            }
-        } else {
+            } 
+         }else {
             JOptionPane.showMessageDialog(null, "Falta llenar campos ");
-
-         } 
+        
+        }
      }
      private void cargarVista() {
         int fila = tblMostrar.getSelectedRow();
@@ -72,7 +77,7 @@ public class Materia extends javax.swing.JFrame {
         } else {
             try {
                 materiaControl.setNombre1(mta.getNombre().getInfo(fila));
-               
+                txtId.setText(materiaControl.getNombre1().getIdentificativo());
                 cbxMateria.setSelectedIndex(materiaControl.getNombre().getId_nombre()- 1);
 
             } catch (Exception e) {
@@ -101,18 +106,20 @@ public class Materia extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tblMostrar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(tblMostrar);
@@ -147,12 +154,14 @@ public class Materia extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Id:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAtras)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -173,12 +182,14 @@ public class Materia extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
                         .addGap(82, 82, 82)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbxCiclo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cbxParalelo, 0, 199, Short.MAX_VALUE)
-                            .addComponent(cbxMateria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cbxMateria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtId))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -188,7 +199,11 @@ public class Materia extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cbxCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -196,7 +211,7 @@ public class Materia extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cbxParalelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(cbxMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -265,8 +280,10 @@ public class Materia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblMostrar;
+    private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }
