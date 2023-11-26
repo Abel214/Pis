@@ -45,12 +45,12 @@ public class ModeloTablaTarea extends AbstractTableModel {
             
         switch(i1){
             case 0: return (p !=null) ? p.getId_tarea().getNombre():" ";   //modelos ternarios
-            case 1: return (p !=null) ? p.getId_tarea().getDescripcion():" ";
+            case 1: return (p !=null) ? p.getDescripcion():" ";
             case 2: return (p !=null) ? p.getTipoTarea():" ";
-            case 3: return (p !=null) ? p.getId_tarea().getNota():" ";
-            case 4:return (p !=null) ? p.getFechaInicio():" ";
+            case 3:return (p !=null) ? p.getFechaInicio():" ";
+            case 4:return (p !=null) ? p.getFechaFinal():" ";
             case 5: return (p !=null) ?  p.getEstadoTarea():" ";
-            case 6:return (p !=null) ? p.getFechaFinal():" ";
+             case 6: return (p !=null) ? p.getNota():" ";
             
             default:
                 return null;

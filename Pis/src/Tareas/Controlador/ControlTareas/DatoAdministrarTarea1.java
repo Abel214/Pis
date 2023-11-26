@@ -24,7 +24,7 @@ public class DatoAdministrarTarea1 extends DaoImplement<Control>  {
         return controles;
     }
 
-    public void setTipos(DynamicList<Control> controles) {
+    public void setControles(DynamicList<Control> controles) {
         this.controles=controles;
     }
 

@@ -15,14 +15,18 @@ public class Control {
     private Integer Id;
     private String fechaInicio;
     private String fechaFinal;
+    private String Descripcion;
+    private String nota;
 
-    public Control(Tarea id_tarea, String estadoTarea, String tipoTarea, Integer Id, String fechaInicio, String fechaFinal) {
+    public Control(Tarea id_tarea,String  nota, String Descripcion,String estadoTarea, String tipoTarea, Integer Id, String fechaInicio, String fechaFinal) {
         this.id_tarea = id_tarea;
         this.estadoTarea = estadoTarea;
         this.tipoTarea = tipoTarea;
         this.Id = Id;
+        this.Descripcion=Descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
+        this.nota=nota;
     }
 
    
@@ -33,8 +37,18 @@ public class Control {
         this.estadoTarea = null;
         this.tipoTarea = null;
         this.Id=null;
+        this.Descripcion=null;
+        this.nota=null;
     }
 
+    public String getDescripcion() {
+        return Descripcion;
+    }
+
+    public void setDescripcion(String Descripcion) {
+        this.Descripcion = Descripcion;
+    }
+    
     public Integer getId() {
         return Id;
     }
@@ -57,6 +71,14 @@ public class Control {
 
     public void setFechaFinal(String fechaFinal) {
         this.fechaFinal = fechaFinal;
+    }
+
+    public String getNota() {
+        return nota;
+    }
+
+    public void setNota(String nota) {
+        this.nota = nota;
     }
     
     
@@ -89,7 +111,7 @@ public class Control {
 
     @Override
     public String toString() {
-        return "Control{" + "id_tarea=" + id_tarea + ", estadoTarea=" + estadoTarea + ", tipoTarea=" + tipoTarea + ", fechaInicio=" + fechaInicio + ", fechaFinal=" + fechaFinal + '}';
+        return "Control{" + "id_tarea="+ id_tarea+"nota"+nota+ "descripcion=" +Descripcion + ", estadoTarea=" + estadoTarea + ", tipoTarea=" + tipoTarea + ", fechaInicio=" + fechaInicio + ", fechaFinal=" + fechaFinal + '}';
     }
     
     

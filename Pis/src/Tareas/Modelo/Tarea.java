@@ -10,14 +10,11 @@ package Tareas.Modelo;
  */
 public class Tarea {
     private String nombre;
-    private String descripcion;
-    private String nota;
     private Integer Id;
 
-    public Tarea(Integer Id,String nombre, String descripcion, String nota) {
+    public Tarea(Integer Id,String nombre) {
         this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.nota = nota;
+
         this.Id = Id;
     }
     public Tarea(){
@@ -41,20 +38,8 @@ public class Tarea {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 
-    public String getNota() {
-        return nota;
-    }
-
-    public void setNota(String nota) {
-        this.nota = nota;
-    }
+    
     
 }

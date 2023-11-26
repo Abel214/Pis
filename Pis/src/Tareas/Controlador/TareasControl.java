@@ -16,12 +16,12 @@ public class TareasControl {
   
     public TareasControl(){
         tareas=new DynamicList<>();
-        tareas.add(new Tarea(1, "Tarea 1","Mapa Conceptual","10"));
-        tareas.add(new Tarea(2, "Ensayo 1","En IEEE"," 3"));
-        tareas.add(new Tarea(3, "Informe ","Estructura"," 8"));
-        tareas.add(new Tarea(4, "Trabajo","Grupal"," 5"));
-        tareas.add(new Tarea(5, "Exposición","Lenguaje C"," 0"));
-        tareas.add(new Tarea(6, "Proyecto","Pis"," 10"));
+        tareas.add(new Tarea(1, "Tarea 1"));
+        tareas.add(new Tarea(2, "Ensayo 1"));
+        tareas.add(new Tarea(3, "Informe "));
+        tareas.add(new Tarea(4, "Trabajo"));
+        tareas.add(new Tarea(5, "Exposición"));
+        tareas.add(new Tarea(6, "Proyecto"));
         
     }
 

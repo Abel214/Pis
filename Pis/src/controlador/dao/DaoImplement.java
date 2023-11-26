@@ -24,7 +24,8 @@ public class DaoImplement <T> implements DaoInterface<T>{
     
     public DaoImplement(Class<T> clazz){
         this.clazz = clazz;
-        connection = Bridge.getConnection();
+        connection=Bridge.getConnection();
+//        connection = Bridge.getConnection();
         URL = Bridge.URL+clazz.getSimpleName() + ".json";
     }
 

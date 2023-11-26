@@ -14,7 +14,7 @@ import javax.swing.JComboBox;
  */
 public class UtilVista {
      public static void CargarComboRolesL(JComboBox cbx)throws Exception{
-        Tareas.Controlador.TareasControl rc= new Tareas.Controlador.TareasControl();
+        TareasControl rc= new TareasControl();
         cbx.removeAllItems();
          for (int i = 0; i < rc.getTareas().getLength(); i++) {
             cbx.addItem(rc.getTareas().getInfo(i));
