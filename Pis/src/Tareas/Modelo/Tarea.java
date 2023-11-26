@@ -14,7 +14,7 @@ public class Tarea {
     private String nota;
     private Integer Id;
 
-    public Tarea(String nombre, String descripcion, String nota, Integer Id) {
+    public Tarea(Integer Id,String nombre, String descripcion, String nota) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.nota = nota;
