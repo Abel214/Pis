@@ -6,7 +6,7 @@ package matricula.modelo;
 
 /**
  *
- * @author darwi
+ * @author darwin
  */
 public class Carrera {
     
