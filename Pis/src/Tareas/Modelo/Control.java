@@ -13,15 +13,23 @@ public class Control {
     private String estadoTarea;
     private String tipoTarea;
     private Integer Id;
+    private String fechaInicio;
+    private String fechaFinal;
 
-    public Control(Tarea id_tarea, String estadoTarea, String tipoTarea,Integer Id) {
+    public Control(Tarea id_tarea, String estadoTarea, String tipoTarea, Integer Id, String fechaInicio, String fechaFinal) {
         this.id_tarea = id_tarea;
-        this.Id=Id;
         this.estadoTarea = estadoTarea;
         this.tipoTarea = tipoTarea;
+        this.Id = Id;
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
     }
+
+   
     public Control() {
         this.id_tarea =null;
+        this.fechaFinal=null;
+        this.fechaInicio=null;
         this.estadoTarea = null;
         this.tipoTarea = null;
         this.Id=null;
@@ -35,6 +43,22 @@ public class Control {
         this.Id = Id;
     }
 
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getFechaFinal() {
+        return fechaFinal;
+    }
+
+    public void setFechaFinal(String fechaFinal) {
+        this.fechaFinal = fechaFinal;
+    }
+    
     
     
     public Tarea getId_tarea() {
@@ -61,6 +85,11 @@ public class Control {
 
     public void setTipoTarea(String tipoTarea) {
         this.tipoTarea = tipoTarea;
+    }
+
+    @Override
+    public String toString() {
+        return "Control{" + "id_tarea=" + id_tarea + ", estadoTarea=" + estadoTarea + ", tipoTarea=" + tipoTarea + ", fechaInicio=" + fechaInicio + ", fechaFinal=" + fechaFinal + '}';
     }
     
     
