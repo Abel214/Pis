@@ -6,6 +6,7 @@ package matricula.controlador;
 
 import controlador.dao.DaoImplement;
 import controlador.listas.DynamicList;
+import java.util.Date;
 import matricula.modelo.PeriodoAcademico;
 
 /**
@@ -45,5 +46,13 @@ public class PeriodoAcademicoControl extends DaoImplement<PeriodoAcademico>{
         periodoAcademico.setId(all().getLength()+1);
         return persist(periodoAcademico);
     }
+    
+//    public static void main(String[] args) {
+//        PeriodoAcademicoControl pa = new PeriodoAcademicoControl();
+//        
+//        System.out.println(pa.all().toString());
+//       
+//    }
+   
     
 }

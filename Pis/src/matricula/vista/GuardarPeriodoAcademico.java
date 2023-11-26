@@ -4,18 +4,76 @@
  */
 package matricula.vista;
 
+import controlador.listas.DynamicList;
+import exeption.EmptyException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import matricula.vista.tabla.ModeloTablaPeriodoAcademico;
+import matricula.controlador.PeriodoAcademicoControl;
+
 /**
  *
  * @author darwi
  */
 public class GuardarPeriodoAcademico extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GuardarPeriodoAcademico
-     */
-    public GuardarPeriodoAcademico() {
+   private ModeloTablaPeriodoAcademico mtpc = new ModeloTablaPeriodoAcademico();
+   private PeriodoAcademicoControl peridoAcademicoControl = new PeriodoAcademicoControl();
+   
+   public void cargarPeridos(DynamicList periodos){
+        mtpc.setPeridosAcademicos(periodos);
         initComponents();
     }
+   
+   public Boolean verificar(){
+        return (!txtNombre.getText().trim().isEmpty() 
+                );
+    }
+   
+    private void cargarTabla(){
+        mtpc.setPeridosAcademicos(peridoAcademicoControl.getListPeriodoAcademico());
+        tbPeridoAcademico.setModel(mtpc);
+        tbPeridoAcademico.updateUI();
+    }
+    
+    
+    
+    private void guardar() throws EmptyException{
+        if (verificar()) {
+            peridoAcademicoControl.getPeriodoAcademico().setNombre(txtNombre.getText());
+            peridoAcademicoControl.getPeriodoAcademico().setFecha_Fin(cldFechaVencimiento.getDate());
+            peridoAcademicoControl.getPeriodoAcademico().setFecha_Inicio(cldFechaInicio.getDate());
+            if (peridoAcademicoControl.persist()) {
+                JOptionPane.showMessageDialog(null, "Datos guardados");
+                cargarTabla();
+                limpiar();
+                peridoAcademicoControl.setPeriodoAcademico(null);
+            }else{
+                JOptionPane.showMessageDialog(null, "No se pudo guardar, hubo un error");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta llenar campos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void limpiar(){
+        txtNombre.setText("");
+        cargarTabla();
+        peridoAcademicoControl.setPeriodoAcademico(null);
+    }
+    
+
+
+    
+    public GuardarPeriodoAcademico() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        cargarTabla();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,7 +87,7 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbPeridoAcademico = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
@@ -37,6 +95,8 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
         btnCargar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        cldFechaInicio = new com.toedter.calendar.JCalendar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,7 +104,7 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
 
         jLabel2.setText("Fecha Vencimiento:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbPeridoAcademico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -55,7 +115,7 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbPeridoAcademico);
 
         jLabel3.setText("Periodo Academico");
 
@@ -66,11 +126,19 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
             }
         });
 
+        cldFechaVencimiento.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cldFechaVencimientoPropertyChange(evt);
+            }
+        });
+
         btnCargar.setText("Cargar");
 
         btnModificar.setText("Modificar");
 
         btnInicio.setText("Inicio");
+
+        jLabel4.setText("Fecha Inicio:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,7 +147,7 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(324, 324, 324)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(531, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,21 +156,24 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAgregar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnCargar)))
+                        .addComponent(btnCargar))
+                    .addComponent(jLabel4))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cldFechaVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNombre))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cldFechaVencimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtNombre))
+                            .addComponent(cldFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnModificar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnInicio)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(btnInicio)))
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,30 +183,56 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(97, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(cldFechaVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAgregar)
-                            .addComponent(btnCargar)
-                            .addComponent(btnModificar)
-                            .addComponent(btnInicio)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                                .addComponent(cldFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(171, 171, 171))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(cldFechaVencimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnCargar)
+                    .addComponent(btnModificar)
+                    .addComponent(btnInicio)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+       try {
+           Date fecha_vencimiento = cldFechaVencimiento.getDate();
+           SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+           String fechaFormateada = formatoFecha.format(fecha_vencimiento);
+           System.out.println("Fecha seleccionada: " + fechaFormateada); 
+           guardar();
+       } catch (EmptyException ex) {
+           Logger.getLogger(GuardarPeriodoAcademico.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        
+      
+        
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void cldFechaVencimientoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cldFechaVencimientoPropertyChange
+        
+    }//GEN-LAST:event_cldFechaVencimientoPropertyChange
 
     /**
      * @param args the command line arguments
@@ -177,12 +274,14 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
     private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnModificar;
+    private com.toedter.calendar.JCalendar cldFechaInicio;
     private com.toedter.calendar.JCalendar cldFechaVencimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbPeridoAcademico;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

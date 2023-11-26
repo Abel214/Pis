@@ -125,6 +125,11 @@ public class DynamicList <E> {
     public Integer getLength() {
         return length;
     }
+
+    public void setLength(Integer length) {
+        this.length = length;
+    }
+    
     
     public Node<E> obtenerNodo(Integer id) throws EmptyException{      
         return getNode(id);
