@@ -36,7 +36,7 @@ public class ControlEstudiante1 extends DaoImplement<Estudiante>{
     }
 
 
-    public void setVendedor (Estudiante estudiante) {
+    public void setEstudiante (Estudiante estudiante) {
         this.estudiante = estudiante;
     }
     public Boolean persit(){
