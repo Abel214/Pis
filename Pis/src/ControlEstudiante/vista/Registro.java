@@ -31,8 +31,9 @@ public class Registro extends javax.swing.JFrame {
     }
     private void Limpiar() {
 
-        txtApellido.setEnabled(true);
+//        txtApellido.setEnabled(true);
         tblMostrar.clearSelection();
+        txtApellido.setText(" ");
         txtNombre.setText(" ");
         txtCedula.setText(" ");
         txtCorreo.setText(" ");

@@ -26,7 +26,7 @@ public class Estudiante {
     }
 
     public Estudiante() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
   
@@ -77,6 +77,14 @@ public class Estudiante {
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", correo=" + correo + ", cedula=" + cedula + ", Id=" + Id + '}';
+    }
+
+  
+    
     
    
 }
