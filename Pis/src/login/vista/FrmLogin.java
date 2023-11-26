@@ -1,4 +1,4 @@
-package Vista.FrmLogin;
+package login.vista;
 
 import java.awt.Dimension;
 
