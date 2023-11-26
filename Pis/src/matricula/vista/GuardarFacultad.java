@@ -4,17 +4,76 @@
  */
 package matricula.vista;
 
+import controlador.listas.DynamicList;
+import exeption.EmptyException;
+import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import matricula.controlador.FacultadControl;
+import matricula.vista.tabla.ModeloTablaFacultad;
+
 /**
  *
  * @author darwi
  */
 public class GuardarFacultad extends javax.swing.JFrame {
-
-    /**
-     * Creates new form GuardarFacultad
-     */
+    
+    private ModeloTablaFacultad mtf = new ModeloTablaFacultad();
+    private FacultadControl facultadControl = new FacultadControl();
+   
+   
+    public void cargarPeridos(DynamicList facultades){
+        mtf.setFacultades(facultades);
+        initComponents();
+    }
+    
+    public Boolean verificar(){
+        return (!txtDescripcion.getText().trim().isEmpty() 
+                && !txtNombre.getText().trim().isEmpty()
+                && !txtNumBloques.getText().trim().isEmpty()
+                && !txtUbicacion.getText().trim().isEmpty()
+                );
+    }
+    
+    private void cargarTabla(){
+        mtf.setFacultades(facultadControl.getListFacultades());
+        tbFacultad.setModel(mtf);
+        tbFacultad.updateUI();
+    }
+    
+    private void guardar() throws EmptyException{
+        if (verificar()) {
+            facultadControl.getFacultad().setNombre(txtNombre.getText());
+            facultadControl.getFacultad().setDescripcion(txtDescripcion.getText());
+            facultadControl.getFacultad().setUbicacion(txtUbicacion.getText());
+            facultadControl.getFacultad().setNumBloques(Integer.parseInt(txtNumBloques.getText()));
+            if (facultadControl.persist()) {
+                JOptionPane.showMessageDialog(null, "Datos guardados");
+                cargarTabla();
+                limpiar();
+                facultadControl.setFacultad(null);
+            }else{
+                JOptionPane.showMessageDialog(null, "No se pudo guardar, hubo un error");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta llenar campos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    private void limpiar(){
+        txtNombre.setText("");
+        txtDescripcion.setText(" ");
+        txtNumBloques.setText(" ");
+        txtUbicacion.setText(" ");
+        cargarTabla();
+        facultadControl.setFacultad(null);
+    }
+  
+  
     public GuardarFacultad() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        cargarTabla();
     }
 
     /**
@@ -60,6 +119,12 @@ public class GuardarFacultad extends javax.swing.JFrame {
             }
         });
 
+        txtNumBloques.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumBloquesKeyTyped(evt);
+            }
+        });
+
         tbFacultad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -84,6 +149,11 @@ public class GuardarFacultad extends javax.swing.JFrame {
         jScrollPane3.setViewportView(txtUbicacion);
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnCargar.setText("Cargar");
 
@@ -171,6 +241,22 @@ public class GuardarFacultad extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtNumBloquesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumBloquesKeyTyped
+        char tecla = evt.getKeyChar();
+        if((tecla > '<' || tecla > '9') && tecla != KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+            
+        }
+    }//GEN-LAST:event_txtNumBloquesKeyTyped
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        try {
+            guardar();
+        } catch (EmptyException ex) {
+            Logger.getLogger(GuardarFacultad.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments

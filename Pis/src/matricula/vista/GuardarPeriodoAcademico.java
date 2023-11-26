@@ -224,10 +224,9 @@ public class GuardarPeriodoAcademico extends javax.swing.JFrame {
            guardar();
        } catch (EmptyException ex) {
            Logger.getLogger(GuardarPeriodoAcademico.class.getName()).log(Level.SEVERE, null, ex);
-       }
-        
+       }     
       
-        
+ 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void cldFechaVencimientoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cldFechaVencimientoPropertyChange
