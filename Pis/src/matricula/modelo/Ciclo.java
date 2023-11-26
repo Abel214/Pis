@@ -67,10 +67,6 @@ public class Ciclo {
     @Override
     public String toString() {
         return numCiclo.toString();
-    }
-    
-    
-    
-    
+    } 
     
 }
