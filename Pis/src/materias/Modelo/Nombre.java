@@ -12,9 +12,12 @@ public class Nombre {
    private Materia Id_nombre;
    private Integer id;
 
-   private Nombre(){
-       
-   }
+   public Nombre() {
+        this.Id_nombre = null;
+        this.id = null;
+    }
+    
+   
 
     public Nombre(Materia Id_nombre, Integer id) {
         this.Id_nombre = Id_nombre;
