@@ -4,7 +4,9 @@
  */
 package Docente.Vista.Util;
 
+import Docente.Controlador.Docente.DocenteControl1;
 import Docente.Controlador.DocenteControl;
+import Docente.Modelo.Docente;
 import javax.swing.JComboBox;
 
 /**
@@ -13,10 +15,10 @@ import javax.swing.JComboBox;
  */
 public class UtilVista {
      public static void cargarcomboRolesL(JComboBox cbx) throws Exception {
-       Docente.Controlador.DocenteControl rc= new Docente.Controlador.DocenteControl();
+      DocenteControl1 rc= new DocenteControl1();
         cbx.removeAllItems();
-         for (int i = 0; i < rc.getDocentes().getLength(); i++) {
-            cbx.addItem(rc.getDocentes().getInfo(i).getApellido());
+         for (int i = 0; i < rc.getListR().getLength(); i++) {
+            cbx.addItem(rc.getListR().getInfo(i).getApellido());
         }
     }
  

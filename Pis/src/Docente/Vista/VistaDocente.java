@@ -6,6 +6,7 @@ package Docente.Vista;
 
 import Docente.Controlador.Docente.DocenteControl1;
 import Docente.Vista.Tabla.ModeloTablaDocente;
+import Docente.Vista.Util.UtilVista;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
@@ -31,7 +32,7 @@ public class VistaDocente extends javax.swing.JFrame {
         tblMostrar.updateUI();
     }
     private void Limpiar() {
-
+       
         txtApellido.setEnabled(true);
         tblMostrar.clearSelection();
         txtNombre.setText(" ");
@@ -56,15 +57,18 @@ public class VistaDocente extends javax.swing.JFrame {
      private void Guardar() {
         if (Validar()) {
            
-            agenteControl.getVendedor().setCedula(txtCedula.getText());
-            agenteControl.getVendedor().setNombre(txtNombre.getText());
-            agenteControl.getVendedor().setApellido(txtApellido.getText());
-             agenteControl.getVendedor().setEdad(txtEdad.getText());
-            agenteControl.getVendedor().setNumero(txtNumero.getText());
+            docenteControl.getDocente().setCedula(txtCedula.getText());
+            docenteControl.getDocente().setNombre(txtNombre.getText());
+            docenteControl.getDocente().setApellido(txtApellido.getText());
+            docenteControl.getDocente().setEdad(txtEdad.getText());
+            docenteControl.getDocente().setNumero(txtNumero.getText());
+            docenteControl.getDocente().setCorreo(txtCorreo.getText());
+             docenteControl.getDocente().setDescripcion(txtDescrip.getText());
+            docenteControl.getDocente().setEspecialidad(UtilVista.obtenerRolControl(cbxEspecialidad));
             
-        if (agenteControl.persit()) {
+        if (docenteControl.persit()) {
                 JOptionPane.showMessageDialog(null, "Datos guardados con exito");
-                agenteControl.setVendedor(null);
+                docenteControl.setDocente(null);
                 CargarTabla();
                 Limpiar();
             } else {
