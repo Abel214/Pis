@@ -1,0 +1,16 @@
+{
+    "controlador.listas.DynamicList": {
+        "header": {
+            "info": {
+                "@class": "matricula.modelo.Malla",
+                "nombre": "Malla Curricular",
+                "id": 1,
+                "id_Carrera": 1
+            }
+        },
+        "last": {
+            "@reference": "..\/header"
+        },
+        "length": 1
+    }
+}
