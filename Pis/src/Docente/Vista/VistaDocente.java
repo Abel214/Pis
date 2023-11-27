@@ -80,6 +80,26 @@ public class VistaDocente extends javax.swing.JFrame {
         }
         
      }
+     private void cargarVista() {
+        int fila = tblMostrar.getSelectedRow();
+        if (fila < 0) {
+            JOptionPane.showMessageDialog(null, "Escoja un registtro de la tabla");
+        } else {
+            try {
+                docenteControl.setDocente(mta.getDocentes().getInfo(fila));
+                 txtNombre.setText(docenteControl.getDocente().getNombre());
+                txtApellido.setText(docenteControl.getDocente().getApellido());
+                 txtEdad.setText(docenteControl.getDocente().getEdad());
+                 txtCedula.setText(docenteControl.getDocente().getCedula());
+                   txtNumero.setText(docenteControl.getDocente().getNumero());
+                     txtDescrip.setText(docenteControl.getDocente().getDescripcion());
+           
+
+            } catch (Exception e) {
+            }
+
+        }
+    }
     
 
     /**
@@ -144,7 +164,7 @@ public class VistaDocente extends javax.swing.JFrame {
 
         jLabel9.setText("Descripción:");
 
-        cbxEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Licenciado (LL.B. o J.D.)", "Magíster (M.A. o M.S.)", "Doctorado (Ph.D. o D.Sc.)" }));
         cbxEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxEspecialidadActionPerformed(evt);
@@ -152,6 +172,11 @@ public class VistaDocente extends javax.swing.JFrame {
         });
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Atras");
 
@@ -254,6 +279,10 @@ public class VistaDocente extends javax.swing.JFrame {
     private void cbxEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEspecialidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxEspecialidadActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        Guardar();
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
