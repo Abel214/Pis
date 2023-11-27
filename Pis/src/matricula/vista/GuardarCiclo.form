@@ -63,8 +63,8 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jCalendar1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCalendar2" min="-2" max="-2" attributes="0"/>
+                              <Component id="cldFechaInicio" min="-2" max="-2" attributes="0"/>
+                              <Component id="cldFechaFin" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -115,11 +115,11 @@
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCalendar1" min="-2" max="-2" attributes="0"/>
+                              <Component id="cldFechaInicio" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jCalendar2" min="-2" max="-2" attributes="0"/>
+                              <Component id="cldFechaFin" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -148,6 +148,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNumCiclo">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNumCicloKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -166,7 +169,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="tbCiclo">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
@@ -180,14 +183,17 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="com.toedter.calendar.JCalendar" name="jCalendar1">
+        <Component class="com.toedter.calendar.JCalendar" name="cldFechaInicio">
         </Component>
-        <Component class="com.toedter.calendar.JCalendar" name="jCalendar2">
+        <Component class="com.toedter.calendar.JCalendar" name="cldFechaFin">
         </Component>
         <Component class="javax.swing.JButton" name="btnAgregar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnModificar">
           <Properties>

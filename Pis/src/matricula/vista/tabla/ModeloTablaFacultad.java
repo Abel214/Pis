@@ -27,7 +27,7 @@ public class ModeloTablaFacultad extends AbstractTableModel {
 
     @Override
     public int getColumnCount() { //Agregar columnas
-        return 6;
+        return 5;
     }
 
     @Override

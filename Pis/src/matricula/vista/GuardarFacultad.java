@@ -15,7 +15,7 @@ import matricula.vista.tabla.ModeloTablaFacultad;
 
 /**
  *
- * @author darwi
+ * @author darwin
  */
 public class GuardarFacultad extends javax.swing.JFrame {
     
@@ -23,7 +23,7 @@ public class GuardarFacultad extends javax.swing.JFrame {
     private FacultadControl facultadControl = new FacultadControl();
    
    
-    public void cargarPeridos(DynamicList facultades){
+    public void cargarFacultades(DynamicList facultades){
         mtf.setFacultades(facultades);
         initComponents();
     }

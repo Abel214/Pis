@@ -5,6 +5,11 @@
 package matricula.vista;
 
 import controlador.listas.DynamicList;
+import exeption.EmptyException;
+import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import matricula.controlador.CicloControl;
 import matricula.vista.tabla.ModeloTablaCiclo;
 
@@ -17,13 +22,51 @@ public class GuardarCiclo extends javax.swing.JFrame {
     private CicloControl cicloControl = new CicloControl();
    
    
-    public void cargarPeridos(DynamicList ciclos){
+    public void cargarCiclos(DynamicList ciclos){
         mtc.setCiclos(ciclos);
         initComponents();
     }
+    
+    public Boolean verificar(){
+        return (!txtNumCiclo.getText().trim().isEmpty() 
+                );
+    }
+    
+    private void cargarTabla(){
+        mtc.setCiclos(cicloControl.getListCiclo());
+        tbCiclo.setModel(mtc);
+        tbCiclo.updateUI();
+    }
+    
+    private void guardar() throws EmptyException{
+        if (verificar()) {
+            cicloControl.getCiclo().setFechaFin(cldFechaFin.getDate());
+            cicloControl.getCiclo().setFechaInicio(cldFechaInicio.getDate());
+            cicloControl.getCiclo().setNumCiclo(Integer.parseInt(txtNumCiclo.getText()));
+            if (cicloControl.persist()) {
+                JOptionPane.showMessageDialog(null, "Datos guardados");
+                cargarTabla();
+                limpiar();
+                cicloControl.setCiclo(null);
+            }else{
+                JOptionPane.showMessageDialog(null, "No se pudo guardar, hubo un error");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta llenar campos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+     private void limpiar(){
+        txtNumCiclo.setText(" ");
+        cargarTabla();
+        cicloControl.setCiclo(null);
+    }
+    
 
     public GuardarCiclo() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        cargarTabla();
     }
 
     /**
@@ -42,9 +85,9 @@ public class GuardarCiclo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
-        jCalendar2 = new com.toedter.calendar.JCalendar();
+        tbCiclo = new javax.swing.JTable();
+        cldFechaInicio = new com.toedter.calendar.JCalendar();
+        cldFechaFin = new com.toedter.calendar.JCalendar();
         btnAgregar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnCargar = new javax.swing.JButton();
@@ -58,11 +101,17 @@ public class GuardarCiclo extends javax.swing.JFrame {
 
         jLabel1.setText("Numero:");
 
+        txtNumCiclo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumCicloKeyTyped(evt);
+            }
+        });
+
         jLabel2.setText("Fecha Inicio:");
 
         jLabel3.setText("Fecha fin:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbCiclo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -73,9 +122,14 @@ public class GuardarCiclo extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbCiclo);
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnModificar.setText("Modificar");
 
@@ -98,8 +152,8 @@ public class GuardarCiclo extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCalendar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cldFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cldFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(34, 34, 34)
@@ -139,10 +193,10 @@ public class GuardarCiclo extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cldFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCalendar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cldFechaFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -171,6 +225,21 @@ public class GuardarCiclo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        try {
+            guardar();
+        } catch (EmptyException ex) {
+            Logger.getLogger(GuardarCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void txtNumCicloKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumCicloKeyTyped
+        char tecla = evt.getKeyChar();
+        if((tecla > '<' || tecla > '9') && tecla != KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNumCicloKeyTyped
 
     /**
      * @param args the command line arguments
@@ -212,15 +281,15 @@ public class GuardarCiclo extends javax.swing.JFrame {
     private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnModificar;
-    private com.toedter.calendar.JCalendar jCalendar1;
-    private com.toedter.calendar.JCalendar jCalendar2;
+    private com.toedter.calendar.JCalendar cldFechaFin;
+    private com.toedter.calendar.JCalendar cldFechaInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbCiclo;
     private javax.swing.JTextField txtNumCiclo;
     // End of variables declaration//GEN-END:variables
 }

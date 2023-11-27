@@ -28,7 +28,7 @@ public class ModeloTablaCiclo extends AbstractTableModel{
 
     @Override
     public int getColumnCount() { //Agregar columnas
-        return 6;
+        return 4;
     }
 
     @Override
@@ -66,13 +66,11 @@ public class ModeloTablaCiclo extends AbstractTableModel{
             case 0:
                 return "ID";
             case 1:
-                return "NOMBRE";
+                return "Numero";
             case 2:
-                return "NÚMERO DE BLOQUES";
+                return "FECHA INICIO";
             case 3:
-                return "DESCRIPCIÓN";
-            case 4:
-                return "UBICACIÓN";
+                return "FECHA FIN";
             default:
                 return null;
         }
