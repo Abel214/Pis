@@ -29,6 +29,20 @@ public class VistaDocente extends javax.swing.JFrame {
         tblMostrar.setModel((TableModel) mta);
         tblMostrar.updateUI();
     }
+    private void Limpiar() {
+
+        txtApellido.setEnabled(true);
+        tblMostrar.clearSelection();
+        txtNombre.setText(" ");
+        txtCedula.setText(" ");
+        txtEdad.setText(" ");
+        txtCorreo.setText(" ");
+        txtDescrip.setText(" ");
+        txtNumero.setText(" ");
+        CargarTabla();
+        docenteControl.setDocente(null);
+
+    }
     
 
     /**
