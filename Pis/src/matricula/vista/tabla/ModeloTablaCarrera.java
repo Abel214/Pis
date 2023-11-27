@@ -6,7 +6,7 @@ package matricula.vista.tabla;
 
 import controlador.listas.DynamicList;
 import exeption.EmptyException;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import matricula.modelo.Carrera;

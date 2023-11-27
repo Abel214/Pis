@@ -10,6 +10,6 @@ package matricula.modelo;
  */
 public enum Modalidad {
     
-    PRESENCIAL, VIRTUAL
+    PRESENCIAL, VIRTUAL, INTENSIVO
     
 }

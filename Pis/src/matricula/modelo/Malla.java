@@ -11,18 +11,18 @@ package matricula.modelo;
 public class Malla {
     private String nombre;
     private Integer id;
-    private Integer numCiclos;
+    private Integer id_Carrera;
 
-    public Malla(String nombre, Integer id, Integer numCiclos) {
+    public Malla(String nombre, Integer id, Integer id_Carrera) {
         this.nombre = nombre;
         this.id = id;
-        this.numCiclos = numCiclos;
+        this.id_Carrera = id_Carrera;
     }
 
     public Malla() {
         this.nombre = null;
         this.id = null;
-        this.numCiclos = null;
+        this.id_Carrera = null;
     }
     
     
@@ -45,12 +45,12 @@ public class Malla {
         this.id = id;
     }
 
-    public Integer getNumCiclos() {
-        return numCiclos;
+    public Integer getId_Carrera() {
+        return id_Carrera;
     }
 
-    public void setNumCiclos(Integer numCiclos) {
-        this.numCiclos = numCiclos;
+    public void setId_Carrera(Integer id_Carrera) {
+        this.id_Carrera = id_Carrera;
     }
 
     @Override
