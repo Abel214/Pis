@@ -13,12 +13,14 @@ public class Carrera {
     private String descripcion;
     private Integer duracionAnios;
     private Integer id;
+    private Integer numCiclos;
 
-    public Carrera(String nombre, String descripcion, Integer duracionAnios, Integer id) {
+    public Carrera(String nombre, String descripcion, Integer duracionAnios, Integer id, Integer numCiclos) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.duracionAnios = duracionAnios;
         this.id = id;
+        this.numCiclos = numCiclos;
     }
 
     public Carrera() {
@@ -26,6 +28,15 @@ public class Carrera {
         this.duracionAnios = null;
         this.descripcion = null;
         this.id = null;
+        this.numCiclos = null;
+    }
+
+    public Integer getNumCiclos() {
+        return numCiclos;
+    }
+
+    public void setNumCiclos(Integer numCiclos) {
+        this.numCiclos = numCiclos;
     }
     
     
