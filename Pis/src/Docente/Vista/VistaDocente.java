@@ -19,6 +19,8 @@ public class VistaDocente extends javax.swing.JFrame {
      */
     public VistaDocente() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        Limpiar();
     }
     
 
