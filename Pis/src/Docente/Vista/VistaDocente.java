@@ -6,6 +6,7 @@ package Docente.Vista;
 
 import Docente.Controlador.Docente.DocenteControl1;
 import Docente.Vista.Tabla.ModeloTablaDocente;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
 /**
@@ -52,6 +53,29 @@ public class VistaDocente extends javax.swing.JFrame {
                   && !txtCorreo.getText().trim().isEmpty()
                  && !txtEdad.getText().trim().isEmpty() );
     }
+     private void Guardar() {
+        if (Validar()) {
+           
+            agenteControl.getVendedor().setCedula(txtCedula.getText());
+            agenteControl.getVendedor().setNombre(txtNombre.getText());
+            agenteControl.getVendedor().setApellido(txtApellido.getText());
+             agenteControl.getVendedor().setEdad(txtEdad.getText());
+            agenteControl.getVendedor().setNumero(txtNumero.getText());
+            
+        if (agenteControl.persit()) {
+                JOptionPane.showMessageDialog(null, "Datos guardados con exito");
+                agenteControl.setVendedor(null);
+                CargarTabla();
+                Limpiar();
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo guardar");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Falta llenar campos ");
+
+        }
+        
+     }
     
 
     /**
