@@ -1,0 +1,1 @@
+{"controlador.listas.DynamicList":{"header":{"info":{"@class":"ControlEstudiante.modelo.Estudiante","nombre":" Darwin","apellido":" Granda","edad":" 21","correo":" darwin.granda@unl.edu.ec","cedula":" 110554345456","Id":1}},"last":{"@reference":"..\/header"},"length":1}}
