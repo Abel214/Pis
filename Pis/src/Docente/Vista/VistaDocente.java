@@ -43,6 +43,15 @@ public class VistaDocente extends javax.swing.JFrame {
         docenteControl.setDocente(null);
 
     }
+     private Boolean Validar() {
+        return (!txtApellido.getText().trim().isEmpty()
+                && !txtNumero.getText().trim().isEmpty()
+                && !txtNombre.getText().trim().isEmpty()
+                 && !txtCedula.getText().trim().isEmpty()
+                 && !txtDescrip.getText().trim().isEmpty()
+                  && !txtCorreo.getText().trim().isEmpty()
+                 && !txtEdad.getText().trim().isEmpty() );
+    }
     
 
     /**
