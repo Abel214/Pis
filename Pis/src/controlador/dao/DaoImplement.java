@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author darwi
  */
-public class DaoImplement <E> implements DaoInterface<T>{
+public class DaoImplement <T> implements DaoInterface<T>{
     private Class <T> clazz;
     private XStream connection;
     private String URL;
@@ -42,7 +42,7 @@ public class DaoImplement <E> implements DaoInterface<T>{
     }
 
     @Override
-    //Actualizar lista
+    //Actualizar lista completar
     public Boolean marge(T data, Integer id) {
         DynamicList<T> ld = all();
         try {
@@ -72,6 +72,7 @@ public class DaoImplement <E> implements DaoInterface<T>{
     public T get(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
     
     
 }
