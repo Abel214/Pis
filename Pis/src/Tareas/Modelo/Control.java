@@ -4,6 +4,8 @@
  */
 package Tareas.Modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author ALEJANDRO
@@ -13,21 +15,23 @@ public class Control {
     private String estadoTarea;
     private String tipoTarea;
     private Integer Id;
-    private String fechaInicio;
-    private String fechaFinal;
+    private Date fechaInicio;
+    private Date fechaFinal;
     private String Descripcion;
     private String nota;
 
-    public Control(Tarea id_tarea,String  nota, String Descripcion,String estadoTarea, String tipoTarea, Integer Id, String fechaInicio, String fechaFinal) {
+    public Control(Tarea id_tarea, String estadoTarea, String tipoTarea, Integer Id, Date fechaInicio, Date fechaFinal, String Descripcion, String nota) {
         this.id_tarea = id_tarea;
         this.estadoTarea = estadoTarea;
         this.tipoTarea = tipoTarea;
         this.Id = Id;
-        this.Descripcion=Descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
-        this.nota=nota;
+        this.Descripcion = Descripcion;
+        this.nota = nota;
     }
+
+    
 
    
     public Control() {
@@ -57,21 +61,23 @@ public class Control {
         this.Id = Id;
     }
 
-    public String getFechaInicio() {
+    public Date getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(String fechaInicio) {
+    public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public String getFechaFinal() {
+    public Date getFechaFinal() {
         return fechaFinal;
     }
 
-    public void setFechaFinal(String fechaFinal) {
+    public void setFechaFinal(Date fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
+
+    
 
     public String getNota() {
         return nota;

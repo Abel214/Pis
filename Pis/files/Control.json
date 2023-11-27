@@ -1,0 +1,1 @@
+{"controlador.listas.DynamicList":{"header":{"info":{"@class":"Tareas.Modelo.Control","id_tarea":{"nombre":"Ensayo 1","Id":2},"estadoTarea":"Calificada","tipoTarea":"APE","Id":1,"fechaInicio":"2023-11-01 23:10:05.307 UTC","fechaFinal":"2023-11-03 23:10:05.477 UTC","Descripcion":"VHDL","nota":1}},"last":{"@reference":"..\/header"},"length":1}}

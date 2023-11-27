@@ -6,6 +6,7 @@ package Tareas.Vista.TablaTarea;
 
 import Tareas.Modelo.Control;
 import controlador.listas.DynamicList;
+import java.text.SimpleDateFormat;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -39,16 +40,17 @@ public class ModeloTablaTarea extends AbstractTableModel {
     }
     @Override
     public String getValueAt(int i,int i1){
-        // i=fila 1=columna
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
         try {
             Control p = control.getInfo(i);
-            
+             String fechaInicio= formatoFecha.format(p.getFechaInicio());
+           String fechaFin= formatoFecha.format(p.getFechaFinal());
         switch(i1){
             case 0: return (p !=null) ? p.getId_tarea().getNombre():" ";   //modelos ternarios
             case 1: return (p !=null) ? p.getDescripcion():" ";
             case 2: return (p !=null) ? p.getTipoTarea():" ";
-            case 3:return (p !=null) ? p.getFechaInicio():" ";
-            case 4:return (p !=null) ? p.getFechaFinal():" ";
+            case 3:return (p !=null) ? fechaInicio:" ";
+            case 4:return (p !=null) ? fechaFin:" ";
             case 5: return (p !=null) ?  p.getEstadoTarea():" ";
              case 6: return (p !=null) ? p.getNota():" ";
             
