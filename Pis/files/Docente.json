@@ -1,0 +1,1 @@
+{"controlador.listas.DynamicList":{"header":{"info":{"@class":"Docente.Modelo.Docente","Nombre":" Abel","Apellido":"Mora","edad":" 29","id":1,"Cedula":"1105532335 ","Correo":" abel.mora@unl.edu.ec","Especialidad":"Doctorado (Ph.D. o D.Sc.)","Numero":" 0982991517","descripcion":" Computación"}},"last":{"@reference":"..\/header"},"length":1}}
