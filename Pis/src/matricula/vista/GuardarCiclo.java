@@ -4,15 +4,24 @@
  */
 package matricula.vista;
 
+import controlador.listas.DynamicList;
+import matricula.controlador.CicloControl;
+import matricula.vista.tabla.ModeloTablaCiclo;
+
 /**
  *
  * @author darwi
  */
 public class GuardarCiclo extends javax.swing.JFrame {
+    private ModeloTablaCiclo mtc = new ModeloTablaCiclo();
+    private CicloControl cicloControl = new CicloControl();
+   
+   
+    public void cargarPeridos(DynamicList ciclos){
+        mtc.setCiclos(ciclos);
+        initComponents();
+    }
 
-    /**
-     * Creates new form GuardarCiclo
-     */
     public GuardarCiclo() {
         initComponents();
     }
