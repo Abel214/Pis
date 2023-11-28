@@ -4,6 +4,8 @@
  */
 package matricula.vista;
 
+import login.vista.Inicio;
+
 /**
  *
  * @author darwi
@@ -47,6 +49,7 @@ public class GuardarMatricula extends javax.swing.JFrame {
         cldFin = new com.toedter.calendar.JCalendar();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +100,13 @@ public class GuardarMatricula extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
+        jButton1.setText("Atras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,7 +149,9 @@ public class GuardarMatricula extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnCargar)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnInicio))))
+                                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 881, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -192,11 +204,18 @@ public class GuardarMatricula extends javax.swing.JFrame {
                     .addComponent(btnAgregar)
                     .addComponent(btnModificar)
                     .addComponent(btnCargar)
-                    .addComponent(btnInicio)))
+                    .addComponent(btnInicio)
+                    .addComponent(jButton1)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Inicio pc = new Inicio();
+            pc.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,6 +264,7 @@ public class GuardarMatricula extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxPeriodoAcademico;
     private com.toedter.calendar.JCalendar cldFin;
     private com.toedter.calendar.JCalendar cldInicio;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

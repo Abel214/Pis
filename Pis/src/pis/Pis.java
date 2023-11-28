@@ -4,6 +4,8 @@
  */
 package pis;
 
+import login.vista.Login;
+
 /**
  *
  * @author darwi
@@ -13,8 +15,12 @@ public class Pis {
     /**
      * @param args the command line arguments
      */
-//    public static void main(String[] args) {
-//        // TODO code application logic here
-//    }
+    public static void main(String[] args) {
+        Login pc=new Login();
+        pc.setVisible(true);
+        
+    }
+
+    
     
 }

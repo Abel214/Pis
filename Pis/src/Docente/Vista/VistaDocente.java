@@ -9,6 +9,7 @@ import Docente.Vista.Tabla.ModeloTablaDocente;
 import Docente.Vista.Util.UtilVista;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
+import login.vista.Inicio;
 
 /**
  *
@@ -179,6 +180,11 @@ public class VistaDocente extends javax.swing.JFrame {
         });
 
         jButton2.setText("Atras");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -283,6 +289,12 @@ public class VistaDocente extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Guardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Inicio pc=new Inicio();
+        pc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -10,6 +10,7 @@ import Tareas.Vista.Util.UtilVista;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
+import login.vista.Inicio;
 
 /**
  *
@@ -154,6 +155,11 @@ public class Tareas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblMostrar);
 
         btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("SEGUIMIENTO TAREAS ");
 
@@ -336,6 +342,12 @@ public class Tareas extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Guardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        Inicio pc=new Inicio();
+        pc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments

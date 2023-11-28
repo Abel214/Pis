@@ -6,6 +6,7 @@ package materias.Vista;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
+import login.vista.Inicio;
 import materias.Controlador.Materias.DatoMateriaControl;
 import materias.Vista.Tabla.ModeloTablaMateria;
 import materias.Vista.Util.UtilVista;
@@ -125,6 +126,11 @@ public class Materia extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblMostrar);
 
         btnAtras.setText("Atras");
+        btnAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtrasActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Ciclo:");
 
@@ -234,6 +240,12 @@ public class Materia extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         Guardar();
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+        Inicio pc=new Inicio();
+        pc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAtrasActionPerformed
 
     /**
      * @param args the command line arguments
