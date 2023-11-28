@@ -4,7 +4,7 @@ Integrantes:
 
 -Darwin Enrique Granda Orosco 
 
--Alexander Antoño Sánchez 
+-Alexander Antonio Sánchez Azuero 
 
 -Elías Sebastián Poma Granda
    
