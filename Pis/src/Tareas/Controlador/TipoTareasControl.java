@@ -11,10 +11,10 @@ import controlador.listas.DynamicList;
  *
  * @author ALEJANDRO
  */
-public class TareasControl {
+public class TipoTareasControl {
      private DynamicList<Tarea>tareas;
   
-    public TareasControl(){
+    public TipoTareasControl(){
         tareas=new DynamicList<>();
         tareas.add(new Tarea(1, "Tarea 1"));
         tareas.add(new Tarea(2, "Ensayo 1"));

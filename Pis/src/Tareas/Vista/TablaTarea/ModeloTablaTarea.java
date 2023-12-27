@@ -49,7 +49,7 @@ public class ModeloTablaTarea extends AbstractTableModel {
             case 2: return (p !=null) ? p.getTipoTarea():" ";
             case 3:return (p !=null) ? p.getFechaInicio():" ";
             case 4:return (p !=null) ? p.getFechaFinal():" ";
-            case 5: return (p !=null) ?  p.getEstadoTarea():" ";
+            case 5: return (p !=null) ?  p.getId_estado().getEstado():" ";
              case 6: return (p !=null) ? p.getNota():" ";
             
             default:

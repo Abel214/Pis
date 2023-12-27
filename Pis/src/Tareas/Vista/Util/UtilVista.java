@@ -4,7 +4,7 @@
  */
 package Tareas.Vista.Util;
 
-import Tareas.Controlador.TareasControl;
+import Tareas.Controlador.TipoTareasControl;
 import Tareas.Modelo.Tarea;
 import javax.swing.JComboBox;
 
@@ -14,7 +14,7 @@ import javax.swing.JComboBox;
  */
 public class UtilVista {
      public static void CargarComboRolesL(JComboBox cbx)throws Exception{
-        TareasControl rc= new TareasControl();
+        TipoTareasControl rc= new TipoTareasControl();
         cbx.removeAllItems();
          for (int i = 0; i < rc.getTareas().getLength(); i++) {
             cbx.addItem(rc.getTareas().getInfo(i));

@@ -10,23 +10,23 @@ package Tareas.Modelo;
  */
 public class Control {
     private Tarea id_tarea;
-    private String estadoTarea;
     private String tipoTarea;
     private Integer Id;
     private String fechaInicio;
     private String fechaFinal;
     private String Descripcion;
     private String nota;
+    private EstadoTarea id_estado;
 
-    public Control(Tarea id_tarea,String  nota, String Descripcion,String estadoTarea, String tipoTarea, Integer Id, String fechaInicio, String fechaFinal) {
+    public Control(Tarea id_tarea,String  nota, String Descripcion, String tipoTarea, Integer Id, String fechaInicio, String fechaFinal,EstadoTarea id_estado) {
         this.id_tarea = id_tarea;
-        this.estadoTarea = estadoTarea;
         this.tipoTarea = tipoTarea;
         this.Id = Id;
         this.Descripcion=Descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
         this.nota=nota;
+        this.id_estado=id_estado;
     }
 
    
@@ -34,11 +34,11 @@ public class Control {
         this.id_tarea =null;
         this.fechaFinal=null;
         this.fechaInicio=null;
-        this.estadoTarea = null;
         this.tipoTarea = null;
         this.Id=null;
         this.Descripcion=null;
         this.nota=null;
+        this.id_estado=null;
     }
 
     public String getDescripcion() {
@@ -90,16 +90,7 @@ public class Control {
     public void setId_tarea(Tarea id_tarea) {
         this.id_tarea = id_tarea;
     }
-   
-
-   
-    public String getEstadoTarea() {
-        return estadoTarea;
-    }
-
-    public void setEstadoTarea(String estadoTarea) {
-        this.estadoTarea = estadoTarea;
-    }
+ 
 
     public String getTipoTarea() {
         return tipoTarea;
@@ -109,9 +100,18 @@ public class Control {
         this.tipoTarea = tipoTarea;
     }
 
+    public EstadoTarea getId_estado() {
+        return id_estado;
+    }
+
+    public void setId_estado(EstadoTarea id_estado) {
+        this.id_estado = id_estado;
+    }
+    
+
     @Override
     public String toString() {
-        return "Control{" + "id_tarea="+ id_tarea+"nota"+nota+ "descripcion=" +Descripcion + ", estadoTarea=" + estadoTarea + ", tipoTarea=" + tipoTarea + ", fechaInicio=" + fechaInicio + ", fechaFinal=" + fechaFinal + '}';
+        return "Control{" + "id_tarea="+ id_tarea+"id_estado"+id_estado+"nota"+nota+ "descripcion=" +Descripcion+ ", tipoTarea=" + tipoTarea + ", fechaInicio=" + fechaInicio + ", fechaFinal=" + fechaFinal + '}';
     }
     
     
