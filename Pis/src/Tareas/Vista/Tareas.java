@@ -66,7 +66,7 @@ public class Tareas extends javax.swing.JFrame {
             tareaControl.getControl1().setTipoTarea(cbxTipo.getSelectedItem().toString());
             tareaControl.getControl1().setEstadoTarea(cbxEstado.getSelectedItem().toString());
             tareaControl.getControl1().setNota(cbxNota.getSelectedItem().toString());
-            tareaControl.getControl1().setId_tarea(UtilVista.ObtenerCasaControladorL(cbxNombre));
+            tareaControl.getControl1().setId_tarea(UtilVista.ObtenerTipoTarea(cbxNombre));
             
             if (tareaControl.persist()) {
                 JOptionPane.showMessageDialog(null, "Datos guardados con exito");

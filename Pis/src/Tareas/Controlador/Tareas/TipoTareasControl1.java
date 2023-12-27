@@ -12,11 +12,11 @@ import controlador.listas.DynamicList;
  *
  * @author ALEJANDRO
  */
-public class TareasControl1  extends DaoImplement<Tarea> {
+public class TipoTareasControl1  extends DaoImplement<Tarea> {
     private DynamicList<Tarea>listR=new DynamicList<>();
      private Tarea tarea;
      
-     public TareasControl1(){
+     public TipoTareasControl1(){
          super(Tarea.class);
      }
     public DynamicList<Tarea> getListR() {

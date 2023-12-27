@@ -4,24 +4,24 @@
  */
 package Tareas.Vista.Util;
 
-import Tareas.Controlador.TipoTareasControl;
-import Tareas.Modelo.Tarea;
+import Tareas.Controlador.EstadoTareaControl;
+import Tareas.Modelo.EstadoTarea;
 import javax.swing.JComboBox;
 
 /**
  *
  * @author ALEJANDRO
  */
-public class UtilVista {
+public class UtilVistaEstado {
      public static void CargarComboRolesL(JComboBox cbx)throws Exception{
-        TipoTareasControl rc= new TipoTareasControl();
+         EstadoTareaControl rc= new EstadoTareaControl();
         cbx.removeAllItems();
-         for (int i = 0; i < rc.getTareas().getLength(); i++) {
-            cbx.addItem(rc.getTareas().getInfo(i));
+         for (int i = 0; i < rc.getEstado().getLength(); i++) {
+            cbx.addItem(rc.getEstado().getInfo(i));
         }
     }
     
-    public static Tarea ObtenerTipoTarea(JComboBox cbx){
-        return (Tarea)cbx.getSelectedItem();
+    public static EstadoTarea ObtenerEstadoTarea(JComboBox cbx){
+        return (EstadoTarea)cbx.getSelectedItem();
     }
 }
