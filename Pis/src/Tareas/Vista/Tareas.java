@@ -165,8 +165,6 @@ public class Tareas extends javax.swing.JFrame {
 
         jLabel5.setText("Estado Tarea:");
 
-        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enviada", "Retrasada", "Calificada" }));
-
         jLabel6.setText("Nota:");
 
         cbxNota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
