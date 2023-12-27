@@ -18,8 +18,9 @@ import javax.swing.table.TableModel;
 public class Tareas extends javax.swing.JFrame {
     private DatoAdministrarTarea1 tareaControl = new DatoAdministrarTarea1();
     private ModeloTablaTarea mtp = new ModeloTablaTarea();
+    
     /**
-     * Creates new form Tareas
+     * Creates new form Tareas Y  VISTA DEL  DOCENTE
      */
     public Tareas() {
         initComponents();
