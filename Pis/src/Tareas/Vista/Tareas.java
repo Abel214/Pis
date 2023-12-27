@@ -7,6 +7,7 @@ package Tareas.Vista;
 import Tareas.Controlador.ControlTareas.DatoAdministrarTarea1;
 import Tareas.Vista.TablaTarea.ModeloTablaTarea;
 import Tareas.Vista.Util.UtilVista;
+import Tareas.Vista.Util.UtilVistaEstado;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
@@ -40,7 +41,7 @@ public class Tareas extends javax.swing.JFrame {
     private void Limpiar() {
         try {
             UtilVista.CargarComboRolesL(cbxNombre);
-           
+            UtilVistaEstado.CargarComboRolesL(cbxEstado);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -64,7 +65,7 @@ public class Tareas extends javax.swing.JFrame {
         if (Validar()) {
             tareaControl.getControl1().setDescripcion(txtDescrip.getText());
             tareaControl.getControl1().setTipoTarea(cbxTipo.getSelectedItem().toString());
-            tareaControl.getControl1().setEstadoTarea(cbxEstado.getSelectedItem().toString());
+            tareaControl.getControl1().setId_estado(UtilVistaEstado.ObtenerEstadoTarea(cbxEstado));
             tareaControl.getControl1().setNota(cbxNota.getSelectedItem().toString());
             tareaControl.getControl1().setId_tarea(UtilVista.ObtenerTipoTarea(cbxNombre));
             
